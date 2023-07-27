@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container {
+    width: 80vw;
+    margin: 0 auto;
+    background-color: white;
+}
+
+body {
+
+    font-size: 12px;
+    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    color: #000000;
+    margin: 10px;
+}
+
+header {
+    font-size: 2rem;
+    color: #045491;
+    text-align: center;
+    margin: 20px 0;
+}
+
+h1 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    border-bottom: 1px solid #AFAFAF;
+    font-size:  1.5rem;
+    font-weight: bold;
+    /*    margin: 0px;
+        padding: 0px;*/
+    color: #D20005;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+h2 {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    color: #D20005;
+}
+
+a:link, a:visited {
+    color: #045491;
+    font-weight : bold;
+    text-decoration: none;
+}
+
+a:link:hover, a:visited:hover  {
+    color: #045491;
+    font-weight : bold;
+    text-decoration : underline;
+}
+
+
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.card-container {
+    width: 100%;
+}
+
+body .ui-panel .ui-panel-content .um{
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    background: #2a2b2a;
+    color: white;
+    padding: 20px 10px 20px 10px;
+}
+
+body .ui-panel .ui-panel-content .dois{
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    background: #706c61;
+    color: white;
+    padding: 20px 10px 20px 10px;
+}
+
+.card-title {
+    font-weight: bold;
+    padding: 20px;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card-value {
+    padding: 20px;
+    font-size: 20px;
+}
+
+.card-quantity {
+    padding: 20px;
+    margin-top: 5px;
+}
+

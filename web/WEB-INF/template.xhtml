@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="css/default.css"/>
+        <h:outputStylesheet name="css/cssLayout.css"/>
+        <h:outputStylesheet name="css/primeflex/primeflex.min.css"/>
+        <title>Estudo</title>
+    </h:head>
+
+    <h:body>
+
+        <p:growl id="growl" showDetail="true" showSummary="false"/>
+
+        <ui:insert name="top"> 
+            <h:form id="menuForm">
+                <p:menubar  rendered="#{funcionarioController.funcionarioLogado != null}" >
+                    <p:menuitem value="Dashboard"
+                                rendered="#{funcionarioController.funcionarioLogado != null and funcionarioController.funcionarioLogado.cargo == 'G'}"
+                                outcome="/dashboard"
+                                icon="pi pi-th-large"/>  
+                    <p:menuitem value="Venda"
+                                rendered="#{funcionarioController.funcionarioLogado != null}"
+                                outcome="/venda/list"
+                                icon="pi pi-shopping-cart"/>  
+                    <p:menuitem value="Cliente"
+                                rendered="#{funcionarioController.funcionarioLogado != null}"
+                                outcome="/cliente/list"
+                                icon="pi pi-users"/>  
+                    <p:menuitem value="Funcionario"
+                                rendered="#{funcionarioController.funcionarioLogado != null and funcionarioController.funcionarioLogado.cargo == 'G'}"
+                                outcome="/funcionario/list"
+                                icon="pi pi-user-plus"/>  
+                    <p:menuitem value="Produto"
+                                rendered="#{funcionarioController.funcionarioLogado != null}"
+                                outcome="/produto/list"
+                                icon="pi pi-box"/>   
+                     <p:menuitem value="Sair"
+                                rendered="#{funcionarioController.funcionarioLogado != null}"
+                                action="#{funcionarioController.sair()}"
+                                icon="pi pi-sign-out"/>   
+                    <f:facet name="options" >
+                        <p:outputLabel value="#{funcionarioController.funcionarioLogado.nome}" />
+                    </f:facet>
+                </p:menubar>
+            </h:form>
+
+        </ui:insert>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content"></ui:insert>
+        </div>
+
+
+        <div id="bottom">
+            <ui:insert name="bottom">
+                <br/>
+                Felipe Neves 
+                <br/>
+                <br/>
+            </ui:insert>
+        </div>
+
+
+    </h:body>
+
+</html>

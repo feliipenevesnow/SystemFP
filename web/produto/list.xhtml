@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../WEB-INF/template.xhtml">
+
+
+            <ui:define name="content">
+                <h:form id="form">
+                    <p:commandButton action="#{produtoController.redirecionarCadastrarProduto()}" style="background: gray" value="Cadastrar"/>
+                    <p:commandButton  action="#{produtoController.redirecionarEditarProduto()}" style="background: gray; margin-left: 10px" value="Editar"/>
+                    <p:commandButton action="#{produtoController.excluirProduto()}" update="form growl" style="margin-left: 10px; background: red" value="Excluir"/>
+
+                    <h2>Produtos</h2>
+                    <div class="card">
+                        <p:dataTable var="product" 
+                                     selection="#{produtoController.produtoSelecionado}" 
+                                     selectionMode="single"
+                                     rowKey="#{product.idproduto}"
+                                     stripedRows="true"
+                                     rows="5"
+                                     paginator="true" 
+                                     paginatorPosition="bottom"
+                                     value="#{produtoController.buscarTodos()}">
+                            <p:column headerText="Nome" >
+                                <h:outputText value="#{product.nome}" />
+                            </p:column>
+
+                            <p:column headerText="Preço" responsivePriority="3">
+                                <h:outputText value="R$ #{product.preco}" />
+                            </p:column>
+
+                            <p:column headerText="Quantidade Estoque" responsivePriority="4">
+                                <h:outputText value="#{product.quantidade} Uni." />
+                            </p:column>
+
+                        </p:dataTable>
+                    </div>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

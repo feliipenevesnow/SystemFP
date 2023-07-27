@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                template="/WEB-INF/template.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+        <h:form>
+            <div class="dashboard">
+           
+                <p:panelGrid columns="2" styleClass="card-container ui-noborder">
+                    <p:panel styleClass="card-panel ui-noborder">
+                        <div class="um">
+                            <h:outputText value="Total de Vendas" styleClass="card-title" />
+                            <br></br>
+                            <h:outputText value="R$ 1.000,00" styleClass="card-value" />
+                            <br></br>
+                            <h:outputText value="100 vendas" styleClass="card-quantity" />
+                        </div>
+                        <center>
+                            <p:barChart model="#{graficoController.barModel}" style="  max-height: 300px;" />
+                        </center>    
+                    </p:panel>
+
+                    <p:panel styleClass="card-panel ui-noborder">
+                        <div class="dois">
+                            <h:outputText value="Data" styleClass="card-title" />
+                            <br></br>
+                            <h:outputText value="24/03/2023" styleClass="card-value" />
+                            <br></br>
+                            <br></br>
+                            <h:outputText value="Produtos Vendidos" styleClass="card-title" />
+                            <br></br>
+                            <h:outputText value="500" styleClass="card-value" />
+                            <br></br>
+                            <br></br>
+                            <h:outputText value="Clientes Cadastrados" styleClass="card-title" />
+                            <br></br>
+                            <h:outputText value="12" styleClass="card-value" />
+                            <br></br>
+                            <br></br>
+                            <h:outputText value="Funcionários Cadastrados" styleClass="card-title" />
+                            <br></br>
+                            <h:outputText value="3" styleClass="card-value" />
+                            <br></br>
+                            <br></br>
+                            <h:outputText value="Produtos Cadastrados" styleClass="card-title" />
+                            <br></br>
+                            <h:outputText value="14" styleClass="card-value" />
+                            <br></br>
+
+                        </div>
+                    </p:panel>
+                </p:panelGrid>
+            </div>
+
+        </h:form>
+    </ui:define>
+
+</ui:composition>

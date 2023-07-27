@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                template="/WEB-INF/template.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+        <h1>Login</h1>
+        <h:form>
+            <center>
+                <p:panelGrid columns="2">
+
+                    <p:outputLabel for="@next" value="#{bundle.CadastroPessoaLabel_login}" />
+                    <p:inputText value="#{funcionarioController.funcionario.email}" 
+                                 required="true"
+                                 requiredMessage="#{bundle.CadastroPessoaRequiredMessage_login}"/>
+
+                    <p:outputLabel for="@next" value="#{bundle.CadastroPessoaLabel_senha}" />
+                    <p:password value="#{funcionarioController.funcionario.senha}" />
+
+                </p:panelGrid>
+
+                <p:commandButton value="Acessar" 
+                                 action="#{funcionarioController.autenticar}"
+                                 update="growl menuForm"/>
+                <p:commandButton value="Inglês"
+                                 action="#{localeController.setLocaleUS}"
+                                 immediate="true"
+                                 update="@form"/>
+                <p:commandButton value="Português"
+                                 action="#{localeController.setLocaleBR}"
+                                 immediate="true"
+                                 update="@form"/>
+            </center>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

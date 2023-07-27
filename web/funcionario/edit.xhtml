@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../WEB-INF/template.xhtml">
+
+   
+           <ui:define name="content">
+                <h1>Editar Funcionário</h1>
+                <h:form>
+                    <div class="ui-fluid">
+                        <div class="p-grid">
+                            <div class="p-col-12">
+                                <p:outputLabel value="Nome" for="@next"/>
+                                <p:inputText value="#{funcionarioController.funcionarioSelecionado.nome}" id="nome" required="true"/>
+                            </div>
+                            <div class="p-col-6">
+                                <p:outputLabel for="@next" value="CPF" />
+                                <p:inputMask id="cpf" value="#{funcionarioController.funcionarioSelecionado.cpf}" mask="999.999.999-99" />
+                            </div>
+                            <div class="p-col-6">
+                                <p:outputLabel value="Email" for="@next"/>
+                                <p:inputText id="email" value="#{funcionarioController.funcionarioSelecionado.email}"  />
+                            </div>
+                            <div class="p-col-6">
+                                <p:outputLabel value="Senha" for="@next"/>
+                                <p:password id="senha" value="#{funcionarioController.funcionarioSelecionado.senha}"  />
+                            </div>
+                            <div class="p-col-6">
+                                <p:outputLabel for="@next" value="Cargo"/>
+                                <p:selectOneMenu id="option" value="#{funcionarioController.funcionarioSelecionado.cargo}">
+                                    <f:selectItem itemLabel="Selecione" itemValue=""/>
+                                    <f:selectItem itemLabel="Funcionário" itemValue="F"/>
+                                    <f:selectItem itemLabel="Gerente" itemValue="G"/>]
+                                </p:selectOneMenu>  
+                            </div>
+                            <div class="p-col-12">
+                                <p:commandButton action="#{funcionarioController.editar()}" update="growl" value="Editar"/>
+                            </div>
+                        </div>
+                    </div>
+                </h:form>
+            </ui:define>
+
+
+        </ui:composition>
+
+    </body>
+</html>
